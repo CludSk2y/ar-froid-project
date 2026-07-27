@@ -14,6 +14,24 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
+// Fetch a single product by ID (for Voir Détails)
+exports.getProductById = async (req, res) => {
+  try {
+    const product = await Product.findByPk(req.params.id);
+    if (!product) {
+      return res
+        .status(404)
+        .json({ success: false, error: "Product not found" });
+    }
+    res.status(200).json({
+      success: true,
+      data: product,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
 // Create a new product
 exports.createProduct = async (req, res) => {
   try {
