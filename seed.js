@@ -5,7 +5,9 @@ const productsData = [
   {
     name: "Daikin Sensira 12000 BTU",
     category: "Split System",
-    price: 489.0,
+    price: 4890.0,
+    description:
+      "Climatiseur Daikin Sensira ultra-silencieux, offrant une efficacité énergétique optimale et un confort thermique supérieur pour les espaces résidentiels.",
     image: "daikin_sensira.jpg",
     badge: "BEST SELLER",
     specs: "A+++, R32 Gas",
@@ -13,7 +15,9 @@ const productsData = [
   {
     name: "Carrier Infinity Centralized",
     category: "Central Units",
-    price: 2150.0,
+    price: 21500.0,
+    description:
+      "Système de climatisation centralisée Carrier Infinity haut de gamme, conçu pour la régulation thermique avancée des grands bâtiments et espaces industriels.",
     image: "carrier_infinity.jpg",
     badge: "Industrial",
     specs: "Centralized System",
@@ -21,7 +25,9 @@ const productsData = [
   {
     name: "Mitsubishi Electric Multi",
     category: "Split System",
-    price: 1240.0,
+    price: 12400.0,
+    description:
+      "Unité multi-split Mitsubishi Electric performante avec technologie Inverter avancée, garantissant des économies d'énergie substantielles.",
     image: "mitsubishi_multi.jpg",
     badge: "ECO-TECH",
     specs: "A++, Inverter",
@@ -29,7 +35,9 @@ const productsData = [
   {
     name: "LG Cassette Commercial 24k",
     category: "Central Units",
-    price: 899.0,
+    price: 8990.0,
+    description:
+      "Climatiseur cassette LG à diffusion d'air à 360°, parfait pour les bureaux, commerces et espaces professionnels nécessitant une intégration discrète.",
     image: "lg_cassette.jpg",
     badge: "360 Air",
     specs: "Commercial Cassette",
@@ -37,7 +45,9 @@ const productsData = [
   {
     name: "Samsung Floor Standing AC",
     category: "Standing AC",
-    price: 755.0,
+    price: 7550.0,
+    description:
+      "Climatiseur armoire Samsung au design élégant, doté de la fonction Fast Cool pour un rafraîchissement rapide des grands volumes.",
     image: "samsung_floor.jpg",
     badge: "Fast Cool",
     specs: "Floor Standing",
@@ -45,7 +55,9 @@ const productsData = [
   {
     name: "Smart Control Hub Pro",
     category: "Smart Control",
-    price: 129.0,
+    price: 1290.0,
+    description:
+      "Boîtier de commande intelligent Wi-Fi pour la gestion et le pilotage à distance de vos installations de climatisation et de chauffage.",
     image: "smart_hub.jpg",
     badge: "Wi-Fi",
     specs: "App-Connect",
@@ -57,12 +69,11 @@ async function seedDatabase() {
     await sequelize.authenticate();
     console.log("Database connection established successfully.");
 
-    // Changed alter to force so it resets the table and clears duplicates on every run
     await sequelize.sync({ force: true });
 
     await Product.bulkCreate(productsData);
     console.log(
-      "All 6 products have been successfully seeded into the database!",
+      "All 6 products have been successfully seeded into the database with prices in DH!",
     );
 
     process.exit(0);
