@@ -1,14 +1,6 @@
-const express = require("express");
-const cors = require("cors");
+const app = require("./src/app");
 require("dotenv").config();
-const sequelize = require("./config/database");
-const productRoutes = require("./routes/productRoutes");
-
-const app = express();
-app.use(express.json());
-app.use(cors());
-
-app.use("/api/products", productRoutes);
+const sequelize = require("./src/config/database");
 
 const PORT = process.env.PORT || 5000;
 
